@@ -41,8 +41,8 @@ MAIL_TO =
 
 ### Automate script
 We will use a cron for this. Note that your computer need to be on at execution time otherwise the task won't complete.
-- Verify your .env variables are correctly set
-- crontab -e
+- Verify that your .env variables are correctly set
+- `crontab -e`
 - Write in the editor (modify PATH_TO_YOUR_FOLDER accordingly)
 ~~~
 XDG_RUNTIME_DIR="/run/user/1000"
