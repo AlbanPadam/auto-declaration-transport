@@ -1,4 +1,4 @@
-# auto-declaration-transport
+# :bike: auto-declaration-transport :bike:
 Automate filling declaration of transport, send it as an attachment in gmail.
 
 ## User guide (Linux)
@@ -11,7 +11,6 @@ Automate filling declaration of transport, send it as an attachment in gmail.
 ### Gmail API
 Please make sure you are signed in to gmail before following those steps
 - [Create a project](https://console.cloud.google.com/projectcreate) 
-- Setup
 - [Enable GMAIL API in your project](https://console.cloud.google.com/flows/enableapi?apiid=gmail.googleapis.com)
 - Go on [Consent](https://console.cloud.google.com/apis/credentials/consent?)
     - choose intern usage
@@ -34,3 +33,17 @@ SIGNATURE_PLACE =
 MAIL_FROM = 
 MAIL_TO = 
 ~~~
+
+### Run script once to prompt a google authentication (Set MAIL_TO to your address for this :p)
+- `python send_transport_certificate.py`
+- This authentication should be made once and provides you a token that is valid for a long time (1 year)
+- You should see a notification telling you that the mail was successfully send
+
+### Automate script
+We will use a cron for this. Note that your computer need to be on at execution time otherwise the task won't complete.
+- Verify your .env variables are correctly set
+- crontab -e
+- Write in the editor (modify PATH_TO_YOUR_FOLDER accordingly)
+`0 14 20 * * source PATH_TO_YOUR_FOLDER/.venv/bin/activate; python send_transport_certificate.py`
+
+This will run the script every 20th day of every month at 14:00. See [crontab guru](https://crontab.guru/) to set the execution timing of your cron.
