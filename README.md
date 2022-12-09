@@ -46,7 +46,7 @@ We will use a cron for this. Note that your computer need to be on at execution 
 - Write in the editor (modify PATH_TO_YOUR_FOLDER accordingly)
 ~~~
 XDG_RUNTIME_DIR="/run/user/1000"
-0 14 20 * * source PATH_TO_YOUR_FOLDER/.venv/bin/activate; python send_transport_certificate.py
+0 15 15-21 * 4 source PATH_TO_YOUR_FOLDER/.venv/bin/activate; python send_transport_certificate.py
 ~~~
 The first line is here to allow the cron to pop notifications 
-The second line will run the script every 20th day of every month at 14:00. See [crontab guru](https://crontab.guru/) to set the execution timing of your cron.
+The second line will run the script every thursday of the 3rd week of every month at 15:00. See [crontab guru](https://crontab.guru/) to set the execution timing of your cron.
